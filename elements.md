@@ -24,7 +24,7 @@ aside: true
 
 [random text]({{ site.url }}/mytestpost)
 
-5555
+6666
 
 Lorem ipsum dolor sit amet, consectetur adip* isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.
 
