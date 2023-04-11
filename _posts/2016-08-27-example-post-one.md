@@ -1,6 +1,10 @@
 ---
-title: Phys 211: Physics for Science & Engineering I
+title: Description of an Alembic
 permalink: /mytestpost/
+categories:
+- General
+- External sources
+feature_image: "https://picsum.photos/2560/600?image=872"
 ---
 
 
