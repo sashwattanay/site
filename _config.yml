@@ -99,7 +99,7 @@ description: "Sashwat Tanay's personal website"   # Site description and default
 url: "https://sashwattanay.github.io/site" # Site url, also used in jekyll-seo-tag
 baseurl: "site"
 repo: "https://sashwattanay.github.io"
-email: "sashwattanay@olemiss.edu"
+email: "stanay@olemiss.edu"
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
 # date_format: "%-d %B %Y" # Blog post date formatting using placeholder formatting
 # google_analytics: ""
