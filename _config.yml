@@ -127,10 +127,10 @@ navigation_header:
   url: /research/
 - title: Teaching
   url: /teaching/
-- #title: Blog
-  #url: /blog/
-- #title: Categories
-  #url: /categories/
+- title: Hobbies
+  url: /hobbies/
+- title: Outreach
+  url: /outreach/
 - #title: Search
   #url: /search/
 - #title: Sashwat
