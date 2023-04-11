@@ -9,4 +9,5 @@ feature_image: "https://picsum.photos/2560/600?image=872"
 
 
 
-This page is under development.
+This page is under development. I will keep adding the material related to the course Phys 211 that I will teach
+in the summer of 2023.
