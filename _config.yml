@@ -125,7 +125,7 @@ navigation_header:
   url: /
 - title: Research
   url: /research/
-  - title: Teaching
+- title: Teaching
   url: /teaching/
 - #title: Blog
   #url: /blog/
