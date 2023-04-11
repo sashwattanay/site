@@ -2,8 +2,6 @@
 title: Description of an Alembic
 permalink: teach/2023/phys_211
 categories:
-- General
-- External sources
 ---
 
 
