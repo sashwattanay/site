@@ -22,9 +22,9 @@ aside: true
 <small>A small element</small>
 
 
-[Syllabus in PDF format]({{ site.url }}/site/mytestpost)
+[random text]({{ site.url }}/site/mytestpost)
 
-4444
+5555
 
 Lorem ipsum dolor sit amet, consectetur adip* isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.
 
