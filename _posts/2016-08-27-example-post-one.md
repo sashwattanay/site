@@ -1,5 +1,5 @@
 ---
-title: Description of an Alembic
+title: Phys 211: Physics for Science and Engineering I
 permalink: teach/2023/phys_211
 categories:
 ---
