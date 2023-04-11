@@ -21,7 +21,7 @@ aside: true
 
 <small>A small element</small>
 
-[A link](/search/)
+[A link]({%link search.md %})
 
 Lorem ipsum dolor sit amet, consectetur adip* isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.
 
