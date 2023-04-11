@@ -1,6 +1,6 @@
 ---
 title: Description of an Alembic
-permalink: /mytestpost/
+permalink: /teach/2023/phys_211
 categories:
 - General
 - External sources
