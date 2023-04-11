@@ -21,7 +21,9 @@ aside: true
 
 <small>A small element</small>
 
-[A link]({% link _posts/2016-08-27-example-post-one.md %})
+[A link]({% post_url _posts/2016-08-27-example-post-one.md %})
+
+1111
 
 Lorem ipsum dolor sit amet, consectetur adip* isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.
 
