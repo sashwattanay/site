@@ -1,5 +1,6 @@
 ---
 title: Description of an Alembic
+permalink: /mytestpost/
 categories:
 - General
 - External sources
