@@ -22,7 +22,7 @@ aside: true
 <small>A small element</small>
 
 
-[Syllabus in PDF format]({{ site.url }}/mytestpost)
+[Syllabus in PDF format]({{ site.url }}/site/mytestpost)
 
 4444
 
