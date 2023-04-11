@@ -1,6 +1,10 @@
 ---
 title: Phys 211: Physics for Science & Engineering I
 permalink: /teach/2023/phys_211
+categories:
+- General
+- External sources
+feature_image: "https://picsum.photos/2560/600?image=872"
 ---
 
 
