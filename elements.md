@@ -21,7 +21,7 @@ aside: true
 
 <small>A small element</small>
 
-[A link]({%link search.md %})
+[A link]({% link _posts/2016-08-27-example-post-one.md %})
 
 Lorem ipsum dolor sit amet, consectetur adip* isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.
 
