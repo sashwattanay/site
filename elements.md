@@ -21,7 +21,7 @@ aside: true
 
 <small>A small element</small>
 
-[A link]({% link _posts/2016-08-27-example-post-one.md %})
+[A link]({% link /_posts/2016-08-27-example-post-one/ %})
 
 1111
 
