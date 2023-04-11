@@ -76,7 +76,7 @@ defaults:
     scope:
       path: ""
     values:
-      image: "/assets/default-social-image.png" # Default image for sharing
+      image: #"/assets/default-social-image.png" # Default image for sharing
   -
     scope:
       path: ""
@@ -125,18 +125,18 @@ navigation_header:
   url: /
 - title: Elements
   url: /elements/
-- title: Blog
-  url: /blog/
-- title: Categories
-  url: /categories/
-- title: Search
-  url: /search/
-- title: Fork Alembic
-  url: https://github.com/daviddarnes/alembic
+- #title: Blog
+  #url: /blog/
+- #title: Categories
+  #url: /categories/
+- #title: Search
+  #url: /search/
+- #title: Sashwat
+  #url: https://github.com/daviddarnes/alembic
 
 navigation_footer:
-- title: Created by David Darnes
-  url: https://darn.es
+- title: Using Jekyll theme Alembic by David Darnes
+  url: https://github.com/daviddarnes/alembic
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
   Twitter: https://twitter.com/sashwattanay
