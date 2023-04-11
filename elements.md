@@ -22,7 +22,7 @@ aside: true
 <small>A small element</small>
 
 
-[random text]({{ site.url }}/site/mytestpost)
+[random text]({{ site.url }}/mytestpost)
 
 5555
 
