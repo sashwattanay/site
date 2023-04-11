@@ -1,5 +1,5 @@
 ---
-title: Sashwat Tanay (personal webpage)
+title: Sashwat Tanay
 ---
 
 
