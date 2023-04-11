@@ -23,7 +23,7 @@ aside: true
 
 
 [random text]({{ site.url }}/mytestpost)
-
+[random text]({{ site.url }}/assets/sashwat_tanay_cv.pdf)
 6666
 
 Lorem ipsum dolor sit amet, consectetur adip* isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.
