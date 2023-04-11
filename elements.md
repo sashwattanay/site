@@ -21,9 +21,10 @@ aside: true
 
 <small>A small element</small>
 
-[A link](https://sashwattanay.github.io/site/mytestpost/ "A link")
 
-3333
+[Syllabus in PDF format]({{ site.url }}/mytestpost)
+
+4444
 
 Lorem ipsum dolor sit amet, consectetur adip* isicing elit, sed do eiusmod *tempor incididunt ut labore et dolore magna aliqua.
 
