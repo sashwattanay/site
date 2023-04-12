@@ -21,5 +21,6 @@ I recorded myself singing a [Mandarin song](https://youtu.be/bv_cEeDlop0)
 
 
 Additionally, I like to make YouTube videos related to tech tutorials.
-[Here] is an example where I show the power of keyboard shortcuts, 
-[here] I show how to make Gantt charts in Excel.
+[Here](https://youtu.be/-fsQ5yuSVNk) is an example where I show the 
+power of keyboard shortcuts, and 
+[here](https://youtu.be/_t0HpdmeQ5c) I show how to make Gantt charts in Excel.
