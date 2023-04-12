@@ -19,3 +19,10 @@ My research areas include
 (ii) quasi-normal modes of black holes.
 
 
+My research articles can be found at 
+[Google Scholar](https://scholar.google.com/citations?user=EiZB2pgAAAAJ&hl=en),
+ [arXiv](https://arxiv.org/search/gr-qc?searchtype=author&query=Tanay%2C+S), and
+ [inspire HEP](https://inspirehep.net/authors/1947311). 
+
+
+
