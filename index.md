@@ -15,8 +15,16 @@ I will be a postdoctoral fellow at Paris Observatory of PSL University, Paris in
 
 
 
-You can reach me at stanay[at]olemiss.edu. You can also find me on [Twitter](https://twitter.com/sashwattanay).  
+You can reach me at stanay[at]olemiss.edu. You can also find me on
+
+
+[Google Scholar](https://scholar.google.com/citations?user=EiZB2pgAAAAJ&hl=en), [arXiv](https://arxiv.org/search/gr-qc?searchtype=author&query=Tanay%2C+S), [inspire HEP](https://inspirehep.net/authors/1947311) (my research papers)
+
+[GitHub](https://github.com/sashwattanay) 
+
+[Physics Stack Exchange](https://physics.stackexchange.com/users/29315/sashwat-tanay) (technical physics discussions)
+
+[Twitter](https://twitter.com/sashwattanay).  
 
 <!--- [YouTube](https://www.youtube.com/channel/UCqUzU7xD01lT8bAsmzIYtFQ)  --->
-
 
