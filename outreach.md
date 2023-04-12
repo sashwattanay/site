@@ -12,4 +12,6 @@ This can also be used by school teachers as a teaching aid.
 
 A cleaner Mathematica notebook is available 
 [here]({{ site.url }}/assets/satellite_simulation.nb). 
-Mathematica is a paid software. 
+Mathematica is a paid software. Contact me if you want
+to run these codes on 
+[Wolfram Cloud](https://www.wolframcloud.com/) for free.

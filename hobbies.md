@@ -11,16 +11,16 @@ soothing piano instrumental of Elvis Presley's
 
 I am trying to learn to play piano. 
 [Here](https://youtu.be/tRbLFhNZF9c) I am playing on 
-piano a [song](https://youtu.be/VXtDiSeqDqY)  by my cousin.
+piano a [song](https://youtu.be/VXtDiSeqDqY) sung by my cousin.
 
 As  a symbolic gesture 
-against anti-Asian hate which has risen dramatically since COVID,
+against the anti-Asian hate, which has risen dramatically since COVID,
 I recorded myself singing a [Mandarin song](https://youtu.be/bv_cEeDlop0)
  by Taiwanese singer [Teresa Teng](https://en.wikipedia.org/wiki/Teresa_Teng).
 [Here](https://youtu.be/86DAWrvN1t4) is the recording; please use headphones.
 
 
-Additionally, I like to make YouTube videos related to tech tutorials.
+Additionally, I like to make YouTube videos on tech tutorials.
 [Here](https://youtu.be/-fsQ5yuSVNk) is an example where I show the 
 power of keyboard shortcuts, and 
 [here](https://youtu.be/_t0HpdmeQ5c) I show how to make Gantt charts in Excel.
