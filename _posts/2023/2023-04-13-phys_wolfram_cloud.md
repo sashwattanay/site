@@ -10,7 +10,10 @@ categories:
 
 
 
+Do you want to write and run some [Mathematica](https://www.wolfram.com/mathematica/)
+code but don't have a subscription? Or you want to
+run a [Mathematica](https://www.wolfram.com/mathematica/) notebook that
+your colleague or friend has, without paying for Mathematica...
 
 
-This page is under development. I will keep adding the material related to the course Phys 211 that I will teach
-in the summer of 2023.
+[This video](https://youtu.be/t1piP36F87U) is then for you.
