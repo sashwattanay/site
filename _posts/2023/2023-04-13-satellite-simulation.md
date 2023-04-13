@@ -14,7 +14,7 @@ the Moon not crash into the earth. It's inpired from an
 [earlier video](https://youtu.be/K8ms_4SJh9Q) of mine.
 This video argues that the Moon and a falling object
 are essentially very similar; it's just that the Moon
-has been "thrown" with a much larger speed.
+has been "thrown" with a much larger speed. Check it out.
 
 
 
@@ -24,4 +24,4 @@ more refined Mathematica notebook.
 
 
 
-
+This can also be used by school teachers as a teaching aid.

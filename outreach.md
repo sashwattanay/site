@@ -4,14 +4,7 @@ aside: true
 ---
 
 
-[Here](https://youtu.be/K8ms_4SJh9Q) is a YouTube video 
-where I explain to a layperson, why does the 
-Moon not crash into the Earth, but instead keeps on orbiting it. 
-This can also be used by school teachers as a teaching aid.
+Ever wondered why the Moon just keeps going around the Earth
+and does not crash into it? Click 
+[here]({{ site.url }}/2023/04/13/satellite_simulation) for more.
 
-
-A cleaner Mathematica notebook is available 
-[here]({{ site.url }}/assets/satellite_simulation.nb). 
-Mathematica is a paid software. Contact me if you want
-to run these codes on 
-[Wolfram Cloud](https://www.wolframcloud.com/) for free.
