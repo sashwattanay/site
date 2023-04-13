@@ -3,6 +3,7 @@ title: Why doesn't the moon crash into the earth?
 permalink: /2023/04/13/satellite_simulation
 categories:
 - Education
+- Outreach
 - Technolgy
 - Wolfram
 - Mathematica

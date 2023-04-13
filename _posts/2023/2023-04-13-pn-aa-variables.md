@@ -1,11 +1,13 @@
 ---
-title: Run Mathematica codes for free
+title: Integrability and action-angle variables of binary black holes
 permalink: /2023/04/13/pn-aa-variables
 categories:
-- Education
-- Technolgy
-- Wolfram
+- Research
+- Lecture notes
+- Research papers
 - Mathematica
+- Software
+- Computation
 ---
 
 
@@ -42,6 +44,12 @@ graduate level physics courses on the reader's part.
 
 
 
+[This](https://github.com/sashwattanay/BBH-PN-Toolkit)
+GitHub repo contains a Mathematica package which implements
+the above AA-based solution (among other things).
+
+
+
 As a by-product, 
 [here]({{ site.url }}/assets/2023/2023-04-13-Poisson_bracket_notebook.nb)
 is a Mathematica notebook (authored by 
@@ -51,6 +59,13 @@ between any two functions of the phase-space variables
  assumes are Eqs. (6) of [this paper](https://arxiv.org/abs/2012.06586).
  You must have [xAct](http://www.xact.es/)
  installed on your computer for this notebook to work.
+ 
+ 
+Additionally, 
+[this](https://github.com/sashwattanay/EccentricIMR) 
+Mathematica package generates the orbital solution as well as
+gravitational waves for non-spinning binary black hole systems
+up to 4PN (3PN) accuracy in the conservative (radiative) sector.
 
 
 

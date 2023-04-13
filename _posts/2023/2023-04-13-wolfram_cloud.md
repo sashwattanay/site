@@ -6,6 +6,7 @@ categories:
 - Technolgy
 - Wolfram
 - Mathematica
+- Tech Tutorial
 ---
 
 
