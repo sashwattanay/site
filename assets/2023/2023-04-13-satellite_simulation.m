@@ -1,7 +1,12 @@
 (* ::Package:: *)
 
+(* ::Text::Initialization:: *)
+(*(*Author : Sashwat Tanay (sashwattanay@gmail . com)*)*)
+(*(*Date : 13 April 2023*)*)
+
+
 (* ::Subsubsection::Initialization:: *)
-(*Set initial parameters*)
+(*(*Set initial parameters*)*)
 
 
 (* ::Input::Initialization:: *)
@@ -15,7 +20,7 @@ DisplayRange = {-1 10^7, 1.3 10^7};            (*Don't worry about this paramete
 
 
 (* ::Subsubsection::Initialization::Closed:: *)
-(*Unsightly code (hidden from public view)*)
+(*(*Unsightly code (hidden from public view)*)*)
 
 
 (* ::Input::Initialization:: *)
@@ -38,12 +43,8 @@ p2b=Plot[- (RE^2-x^2)^(1/2), {x,-RE,RE}, Filling->Axis];
 
 
 (* ::Subsubsection::Initialization:: *)
-(*Visualize the path*)
+(*(*Visualize the path*)*)
 
 
 (* ::Input::Initialization:: *)
 Manipulate[  Show[p1[time],p2a,p2b]   ,  {time,start,end}  ]
-
-
-(* ::Input::Initialization:: *)
-
