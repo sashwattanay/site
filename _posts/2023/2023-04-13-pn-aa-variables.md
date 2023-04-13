@@ -28,13 +28,14 @@ papers are [this](https://arxiv.org/abs/2012.06586),
 
 
 For a set of lectures delivered to 
-[Prof. Nicolas Yunes'] group at the University of Illinois
+[Prof. Nicolas Yunes'](https://physics.illinois.edu/people/directory/profile/nyunes)
+ group at the University of Illinois
 Urbana-Champaign, I prepared 
 [these](https://github.com/sashwattanay/lectures_integrability_action-angles_PN_BBH/blob/gh-action-result/pdflatex/lecture_notes/main.pdf)
 set of lecture notes. To cite these, please use the 
 [arXiv version](https://arxiv.org/abs/2206.05799).
 NOTE: these notes do not represent the material of my above 
-papers on AA-based solutuion. They instead are meant to bring a
+papers on AA-based solution. They instead are meant to bring a
 beginning graduate student up to speed so that they can read these
 papers. These lecture notes assume the familiarity with the standard
 graduate level physics courses on the reader's part.
