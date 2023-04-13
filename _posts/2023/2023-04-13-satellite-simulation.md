@@ -19,7 +19,7 @@ has been "thrown" with a much larger speed. Check it out.
 
 
 If you want to run the simulations, you can download 
-[this](/assets/2023/2023-04-13-satellite_simulation.nb)
+[this]({{ site.url }}/assets/2023/2023-04-13-satellite_simulation.nb)
 more refined Mathematica notebook.
 
 
