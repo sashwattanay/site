@@ -25,4 +25,7 @@ My research articles can be found at
  [inspire HEP](https://inspirehep.net/authors/1947311). 
 
 
-
+Many of my Ph.D. years were devoted to studying post-Newtonian
+binary black hole systems from the point of view of integrability and
+action-angle variables. I have compiled some resources 
+[here]({{ site.url }}/2023/04/13/pn-aa-variables).
