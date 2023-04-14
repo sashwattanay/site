@@ -4,6 +4,11 @@ aside: true
 ---
 
 
+[Here]({{ site.url }}/assets/aps_april_2023_qnm_presentation.pdf)
+are the slides for my APS April 2023 talk, which is based on
+[this paper](https://arxiv.org/abs/2210.03657).
+
+
 The resources I have assembled can be categorized into
 
 1. [Research]({{ site.url }}/2023/04/13/resources_research)

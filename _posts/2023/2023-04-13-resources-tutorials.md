@@ -22,7 +22,7 @@ power of keyboard shortcuts.
 
 3. [Here](https://youtu.be/_t0HpdmeQ5c) I show how to make Gantt charts in Excel.
 
-4. My other tech-related tutorial videos can be found
-[here](https://www.youtube.com/watch?v=SToy_OXS45U&list=PL-UKo7OfOXE_iWHE6m-Kbm0kmiJdJJlYz&ab_channel=SashwatTanay).
+4. My other tech-related tutorial videos can be found at 
+[this playlist](https://www.youtube.com/watch?v=SToy_OXS45U&list=PL-UKo7OfOXE_iWHE6m-Kbm0kmiJdJJlYz&ab_channel=SashwatTanay).
 
 

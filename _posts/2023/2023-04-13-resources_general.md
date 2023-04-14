@@ -24,7 +24,7 @@ The source code is on
 
 
 2. The LaTeX template for my CV can be found 
-[here](https://github.com/sashwattanay/Curriculum-Vitae), 
+[here](https://github.com/sashwattanay/Curriculum-Vitae).
 
 
 3. The LaTeX template 
