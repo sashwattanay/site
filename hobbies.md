@@ -20,7 +20,10 @@ I recorded myself singing a [Mandarin song](https://youtu.be/bv_cEeDlop0)
 [Here](https://youtu.be/86DAWrvN1t4) is the recording; please use headphones.
 
 
-Additionally, I like to make YouTube videos on tech tutorials.
-[Here](https://youtu.be/-fsQ5yuSVNk) is an example where I show the 
-power of keyboard shortcuts, and 
-[here](https://youtu.be/_t0HpdmeQ5c) I show how to make Gantt charts in Excel.
+
+Additionally, I like to make YouTube videos on tech-related tutorials. 
+Read more [here]({{ site.url }}/2023/04/13/resources_tutorials).
+
+
+
+
