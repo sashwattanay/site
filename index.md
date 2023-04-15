@@ -10,8 +10,13 @@ title: Sashwat Tanay
 
 
 
-Hello! I am an adjunct instructor at the [Department of Physics and Astronomy](https://physics.olemiss.edu/) of the [University of Mississippi](https://olemiss.edu/). 
-I will be a postdoctoral fellow at Paris Observatory of PSL University, Paris in the fall of 2023.
+Hello! I am an adjunct instructor at the [Department of Physics and Astronomy](https://physics.olemiss.edu/) 
+of the [University of Mississippi](https://olemiss.edu/). 
+I will be a postdoctoral fellow at the 
+[LUTH](https://luth.obspm.fr/?lang=en) unit of 
+[Paris Observatory](https://www.observatoiredeparis.psl.eu/-observatoire-de-paris-.html?lang=en)
+of 
+[PSL University](https://psl.eu/en), Paris in the fall of 2023.
 
 
 
