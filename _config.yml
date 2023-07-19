@@ -124,8 +124,8 @@ navigation_header:
 - title: Home
   url: /
 - title: CV
-  url: https://www.dropbox.com/s/7wx03lglpfnwead/sashwat_tanay_cv.pdf?dl=0 
-  #/assets/2023/sashwat_tanay_cv.pdf
+  #url: https://www.dropbox.com/s/7wx03lglpfnwead/sashwat_tanay_cv.pdf?dl=0 
+  /assets/2023/sashwat_tanay_cv.pdf
 - title: Research
   url: /research/
 - title: Teaching
