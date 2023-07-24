@@ -4,7 +4,7 @@ title: Sashwat Tanay
 
 
 
-![MyPhoto](https://i.imgur.com/pKOop9e.jpg)
+![MyPhoto](/assets/2023/profile_pic.jpg)
 
 
 
