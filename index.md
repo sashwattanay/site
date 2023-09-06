@@ -12,7 +12,7 @@ title: Sashwat Tanay
 
 Hello! 
 I am a postdoctoral fellow at the 
-[LUTH](https://luth.obspm.fr/?lang=en) unit of 
+[LUTH](https://luth.obspm.fr/?lang=en) unit of the
 [Paris Observatory](https://www.observatoiredeparis.psl.eu/-observatoire-de-paris-.html?lang=en).
 I did my Ph.D. at the [Department of Physics and Astronomy](https://physics.olemiss.edu/) 
 of the [University of Mississippi](https://olemiss.edu/), under the supervision
