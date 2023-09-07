@@ -24,7 +24,7 @@ of [Dr. Leo Stein](https://duetosymmetry.com/).
 You can reach me at sashwat.tanay[at]obspm.fr. You can also find me on
 
 
-[Google Scholar](https://scholar.google.com/citations?user=EiZB2pgAAAAJ&hl=en), [arXiv](https://arxiv.org/search/gr-qc?searchtype=author&query=Tanay%2C+S), [inspire HEP](https://inspirehep.net/authors/1947311) (my research papers)
+[Google Scholar](https://scholar.google.com/citations?user=EiZB2pgAAAAJ&hl=en), [arXiv](https://arxiv.org/search/gr-qc?searchtype=author&query=Tanay%2C+S), [inspire HEP](https://inspirehep.net/authors/1947311), [ORCID](https://orcid.org/0000-0002-2964-7102) (my research papers)
 
 [LinkedIn](https://www.linkedin.com/in/sashwat-tanay-22b13b214/)
 
