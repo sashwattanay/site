@@ -4,7 +4,8 @@ title: Sashwat Tanay
 
 
 
-<img src="/assets/2023/profile_pic.png" alt="MyPhoto" width="200"/>
+
+<img src="{{ '/assets/2023/profile_pic.png' | relative_url }}" alt="MyPhoto" width="200">
 
 
 
