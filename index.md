@@ -34,8 +34,6 @@ You can reach me at sashwat.tanay[at]obspm.fr. You can also find me on
 
 [Physics Stack Exchange](https://physics.stackexchange.com/users/29315/sashwat-tanay) (technical physics discussions)
 
-[Twitter](https://twitter.com/sashwattanay)
-
 [YouTube](https://www.youtube.com/channel/UCqUzU7xD01lT8bAsmzIYtFQ)
 
 [Instagram](https://www.instagram.com/sashwattanay/)
