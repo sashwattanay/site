@@ -13,10 +13,9 @@ I am trying to learn to play piano.
 [Here](https://youtu.be/tRbLFhNZF9c) I am playing on 
 piano a [song](https://youtu.be/VXtDiSeqDqY) sung by my cousin.
 
-As  a symbolic gesture 
-against the anti-Asian hate, which has risen dramatically since COVID,
+
 I recorded myself singing a [Mandarin song](https://youtu.be/bv_cEeDlop0)
- by Taiwanese singer [Teresa Teng](https://en.wikipedia.org/wiki/Teresa_Teng).
+ by the Taiwanese singer [Teresa Teng](https://en.wikipedia.org/wiki/Teresa_Teng).
 [Here](https://youtu.be/86DAWrvN1t4) is the recording; please use headphones.
 
 
