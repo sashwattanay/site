@@ -20,8 +20,7 @@ I am a Lecturer in Teaching and Research at
 
 I did my Ph.D. at the [Department of Physics and Astronomy](https://physics.olemiss.edu/) 
 of the [University of Mississippi](https://olemiss.edu/), under the supervision
-of [Dr. Leo Stein](https://duetosymmetry.com/), followed by a PSL
-postdoctoral fellowship at
+of [Dr. Leo Stein](https://duetosymmetry.com/), followed by postdoctoral work at
 [Paris Observatory](https://observatoiredeparis.psl.eu/-observatoire-de-paris-psl-1-?lang=en) of the [PSL University](https://psl.eu/en).
 
 
