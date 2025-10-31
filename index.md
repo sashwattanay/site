@@ -13,7 +13,7 @@ title: Sashwat Tanay
 
 
 Hello! 
-I am a Lecturer of Teaching and Research at 
+I am a Lecturer in Teaching and Research at 
 [Universidad de Ingeniería y Tecnología (UTEC)](https://utec.edu.pe/) in Lima, Peru.
 
 
