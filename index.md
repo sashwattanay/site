@@ -13,17 +13,21 @@ title: Sashwat Tanay
 
 
 Hello! 
-I am a postdoctoral fellow at the 
-[LUTH](https://luth.obspm.fr/?lang=en) unit of the
-[Paris Observatory](https://www.observatoiredeparis.psl.eu/-observatoire-de-paris-.html?lang=en).
+I am a Lecturer of Teaching and Research at 
+[Universidad de Ingeniería y Tecnología (UTEC)](https://utec.edu.pe/) in Lima, Peru.
+
+
+
 I did my Ph.D. at the [Department of Physics and Astronomy](https://physics.olemiss.edu/) 
 of the [University of Mississippi](https://olemiss.edu/), under the supervision
-of [Dr. Leo Stein](https://duetosymmetry.com/).
+of [Dr. Leo Stein](https://duetosymmetry.com/), followed by a PSL
+postdoctoral fellowship at
+[Paris Observatory](https://observatoiredeparis.psl.eu/-observatoire-de-paris-psl-1-?lang=en) of the [PSL University](https://psl.eu/en).
 
 
 
 
-You can reach me at sashwat.tanay[at]obspm.fr. You can also find me on
+You can reach me at stanay@utec.edu.pe. You can also find me on
 
 
 [Google Scholar](https://scholar.google.com/citations?user=EiZB2pgAAAAJ&hl=en), [arXiv](https://arxiv.org/search/gr-qc?searchtype=author&query=Tanay%2C+S), [inspire HEP](https://inspirehep.net/authors/1947311), [ORCID](https://orcid.org/0000-0002-2964-7102) (my research papers)
