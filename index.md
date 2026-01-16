@@ -13,8 +13,9 @@ title: Sashwat Tanay
 
 
 Hello! 
-I am a Lecturer in Teaching and Research at 
+I am an assistant professor at 
 [Universidad de Ingeniería y Tecnología (UTEC)](https://utec.edu.pe/) in Lima, Peru.
+My research areas include gravitational waves from black holes, and dynamical systems.
 
 
 
