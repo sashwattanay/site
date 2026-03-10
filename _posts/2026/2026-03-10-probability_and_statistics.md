@@ -1,6 +1,6 @@
 ---
 title: Probability and Statistics 
-permalink: permalink: /2026/03/10/probability_and_statistics
+permalink: /2026/03/10/probability_and_statistics
 categories:
 - Education
 - Teaching
