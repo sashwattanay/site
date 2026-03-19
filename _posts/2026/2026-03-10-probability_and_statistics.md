@@ -7,7 +7,7 @@ categories:
 - Introductory statistics
 ---
 
-Welcome to the course page for **Probability and Statistics I**, a course that I am teaching at **UTEC, Lima** in **Spring 2026**.
+Welcome to the course page for **Probability and Statistics I**, a course that I am teaching in **Spring 2026**.
 
 ## Course Information
 
