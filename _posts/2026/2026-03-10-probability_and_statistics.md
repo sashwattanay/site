@@ -1,5 +1,5 @@
 ---
-title: Probability and Statistics
+title: Probability and Statistics I
 permalink: /2026/03/10/probability_and_statistics
 categories:
 - Education
@@ -7,14 +7,15 @@ categories:
 - Introductory statistics
 ---
 
-Welcome to the course page for **Probability and Statistics**, a course that I am teaching at **UTEC, Lima** in **Spring 2026**.
+Welcome to the course page for **Probability and Statistics I**, a course that I am teaching at **UTEC, Lima** in **Spring 2026**.
 
 ## Course Information
 
-- **Course:** Estadística y Probabilidades I (CC1105) - Teoría-Laboratorio - 10
+- **Course:** Probability and Statistics I (CC1105) - Theory-Laboratory - 10
 - **Credits:** 4
 
-**Schedule**
+## Schedule
+
 - **Monday (in person):** 11:00 AM - 2:00 PM, M604 (6th floor)
 - **Friday (virtual):** 6:00 PM - 8:00 PM
 
@@ -36,7 +37,7 @@ Welcome to the course page for **Probability and Statistics**, a course that I a
 ## Assessment and Grading
 
 | Component | Weight | Due |
-|---|---:|---|
+| :--- | :---: | :--- |
 | Homework 1 | 5% | Week 6 |
 | Quiz 1 | 5% | Week 7 |
 | Partial Exam | 25% | Week 8 |
@@ -44,6 +45,8 @@ Welcome to the course page for **Probability and Statistics**, a course that I a
 | Homework 2 | 5% | Week 14 |
 | Project | 30% | Week 15 |
 | Final Exam | 25% | Week 16 |
+
+<br>
 
 ## Course Content
 
