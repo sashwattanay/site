@@ -31,6 +31,8 @@ Welcome to the course page for **Probability and Statistics I**, a course that I
 - [Lecture Notes](https://drive.google.com/file/d/1iveja0PzebEjF-cxwtMiSBetV1nntgzp/view?usp=sharing)
 - *OpenIntro Statistics*, Fourth Edition — David Diez, Mine Cetinkaya-Rundel, Christopher D. Barr ([freely available here](https://www.biostat.jhsph.edu/~iruczins/teaching/books/2019.openintro.statistics.pdf))
 - *Advanced Engineering Mathematics*, 10th Edition — Erwin Kreyszig
+- *Mathematical Methods for Physics and Engineering*, 3rd Edition - Riley, Hobson and Bence
+- *Probability & Statistics for Engineers & Scientists*, 9th Edition - Walpole, Myers, Myers, Ye
 - **Required software:** R and RStudio
 
 ## Assessment and Grading
