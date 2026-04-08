@@ -41,7 +41,7 @@
     </div>
     <div class="group time-group">
         <label class="time-label">Timeline (Seconds)</label>
-        <input type="range" id="timeIn" min="0" max="48000" value="0" oninput="stopAutoPlay()">
+        <input type="range" id="timeIn" min="0" max="144000" value="0" oninput="stopAutoPlay()">
         <span id="timeVal">0</span>
     </div>
     <div class="group">
@@ -55,12 +55,12 @@
 const G = 6.67e-11;
 const M = 5.97219e24;
 const RE = 6378000;
-const FinalTime = 48000;
+const FinalTime = 144000; // Tripled from 48000
 
 let trajectory = []; 
 let offsetX, offsetY;
 let isPlaying = false;
-let playbackSpeed = 100; // Determines how many seconds pass per frame during auto-run
+let playbackSpeed = 150; // Bumped speed slightly since the timeline is longer
 
 function setup() {
     createCanvas(windowWidth, windowHeight - 100);
@@ -85,7 +85,7 @@ function calculateTrajectory() {
     let vphi = v0Mps / r;
 
     trajectory = [];
-    let dt = 10; 
+    let dt = 15; // Increased step slightly for better performance with longer pre-calc
 
     for (let t = 0; t <= FinalTime; t += dt) {
         trajectory.push({ x: r * cos(phi), y: r * sin(phi), r: r, time: t });
@@ -113,8 +113,6 @@ function calculateTrajectory() {
     }
     
     document.getElementById('timeIn').max = trajectory[trajectory.length - 1].time;
-    
-    // If user changes physical parameters, reset timeline to zero and pause
     document.getElementById('timeIn').value = 0;
     stopAutoPlay();
 }
@@ -128,7 +126,6 @@ function togglePlay() {
         btn.style.background = "#ff4444";
         btn.style.color = "#fff";
         
-        // Reset timeline if playing from the end
         if (parseFloat(document.getElementById('timeIn').value) >= parseFloat(document.getElementById('timeIn').max)) {
             document.getElementById('timeIn').value = 0;
         }
@@ -151,7 +148,6 @@ function draw() {
     let tSlider = document.getElementById('timeIn');
     let maxTime = parseFloat(tSlider.max);
     
-    // Auto-advance timeline if playing
     if (isPlaying) {
         let nextTime = parseFloat(tSlider.value) + playbackSpeed;
         if (nextTime >= maxTime) {
@@ -176,12 +172,10 @@ function draw() {
     push();
     translate(offsetX, offsetY);
 
-    // Earth
     fill(20, 100, 255);
     noStroke();
     circle(0, 0, RE * scale * 2);
 
-    // Trajectory up to scrub time
     noFill(); stroke(255, 100, 0, 150); strokeWeight(1.5);
     beginShape();
     let currentPos = trajectory[0];
@@ -192,7 +186,6 @@ function draw() {
     }
     endShape();
 
-    // Satellite at scrub position
     fill(255, 255, 0);
     noStroke();
     circle(currentPos.x * scale, -currentPos.y * scale, 10);
