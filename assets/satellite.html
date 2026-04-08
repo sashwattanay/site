@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Satellite Interactive & Auto-Run</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #000; color: #fff; margin: 0; overflow: hidden; }
+        #ui { background: #1a1a1a; padding: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; border-bottom: 2px solid #555; align-items: center;}
+        .group { display: flex; flex-direction: column; align-items: center; min-width: 120px; }
+        .time-group { border-left: 2px solid #00ffcc; padding-left: 20px; }
+        label { font-size: 11px; color: #ff8800; margin-bottom: 5px; text-transform: uppercase; font-weight: bold; }
+        .time-label { color: #00ffcc; }
+        span { font-family: monospace; font-size: 14px; margin-top: 2px; }
+        #timeIn { width: 200px; accent-color: #00ffcc; }
+        button { cursor: pointer; padding: 10px 15px; border: none; border-radius: 4px; font-weight: bold; background: #00ffcc; color: #000; width: 140px;}
+        .hint { position: absolute; bottom: 10px; left: 10px; color: #666; font-size: 11px; }
+    </style>
+</head>
+<body>
+
+<div id="ui">
+    <div class="group">
+        <label>Height (Miles)</label>
+        <input type="range" id="hIn" min="0" max="15000" value="5000" oninput="calculateTrajectory()">
+        <span id="hVal">5000</span>
+    </div>
+    <div class="group">
+        <label>Speed (MPH)</label>
+        <input type="range" id="vIn" min="0" max="30000" value="10000" oninput="calculateTrajectory()">
+        <span id="vVal">10000</span>
+    </div>
+    <div class="group">
+        <label>Air Friction</label>
+        <input type="range" id="fIn" min="0" max="100" value="40" oninput="calculateTrajectory()">
+        <span id="fVal">40</span>
+    </div>
+    <div class="group">
+        <label>Zoom</label>
+        <input type="range" id="zIn" min="1" max="100" value="15">
+    </div>
+    <div class="group time-group">
+        <label class="time-label">Timeline (Seconds)</label>
+        <input type="range" id="timeIn" min="0" max="48000" value="0" oninput="stopAutoPlay()">
+        <span id="timeVal">0</span>
+    </div>
+    <div class="group">
+        <button id="playBtn" onclick="togglePlay()">PLAY AUTO-RUN</button>
+    </div>
+</div>
+
+<div class="hint">Click and Drag to pan view. Drag the Timeline to scrub manually.</div>
+
+<script>
+const G = 6.67e-11;
+const M = 5.97219e24;
+const RE = 6378000;
+const FinalTime = 48000;
+
+let trajectory = []; 
+let offsetX, offsetY;
+let isPlaying = false;
+let playbackSpeed = 100; // Determines how many seconds pass per frame during auto-run
+
+function setup() {
+    createCanvas(windowWidth, windowHeight - 100);
+    offsetX = width / 2;
+    offsetY = height / 2;
+    calculateTrajectory();
+}
+
+function calculateTrajectory() {
+    const hMi = parseFloat(document.getElementById('hIn').value);
+    const vMph = parseFloat(document.getElementById('vIn').value);
+    const friction = parseFloat(document.getElementById('fIn').value);
+    
+    document.getElementById('hVal').innerText = hMi;
+    document.getElementById('vVal').innerText = vMph;
+    document.getElementById('fVal').innerText = friction;
+
+    let r = (hMi + 3958) * 1.61 * 1000; 
+    let phi = PI / 2; 
+    let vr = 0; 
+    let v0Mps = (vMph / 0.62) * (5 / 18);
+    let vphi = v0Mps / r;
+
+    trajectory = [];
+    let dt = 10; 
+
+    for (let t = 0; t <= FinalTime; t += dt) {
+        trajectory.push({ x: r * cos(phi), y: r * sin(phi), r: r, time: t });
+
+        if (r < RE) break; 
+
+        const getDerivs = (currR, currPhi, currVr, currVphi) => {
+            return {
+                dr: currVr,
+                dphi: currVphi,
+                dvr: (currR * currVphi * currVphi) - (G * M) / (currR * currR),
+                dvphi: (-2 * currVr * currVphi - friction * currVphi) / currR
+            };
+        };
+
+        let k1 = getDerivs(r, phi, vr, vphi);
+        let k2 = getDerivs(r + k1.dr * dt/2, phi + k1.dphi * dt/2, vr + k1.dvr * dt/2, vphi + k1.dvphi * dt/2);
+        let k3 = getDerivs(r + k2.dr * dt/2, phi + k2.dphi * dt/2, vr + k2.dvr * dt/2, vphi + k2.dvphi * dt/2);
+        let k4 = getDerivs(r + k3.dr * dt, phi + k3.dphi * dt, vr + k3.dvr * dt, vphi + k3.dvphi * dt);
+
+        r += (dt/6) * (k1.dr + 2*k2.dr + 2*k3.dr + k4.dr);
+        phi += (dt/6) * (k1.dphi + 2*k2.dphi + 2*k3.dphi + k4.dphi);
+        vr += (dt/6) * (k1.dvr + 2*k2.dvr + 2*k3.dvr + k4.dvr);
+        vphi += (dt/6) * (k1.dvphi + 2*k2.dvphi + 2*k3.dvphi + k4.dvphi);
+    }
+    
+    document.getElementById('timeIn').max = trajectory[trajectory.length - 1].time;
+    
+    // If user changes physical parameters, reset timeline to zero and pause
+    document.getElementById('timeIn').value = 0;
+    stopAutoPlay();
+}
+
+function togglePlay() {
+    isPlaying = !isPlaying;
+    let btn = document.getElementById('playBtn');
+    
+    if (isPlaying) {
+        btn.innerText = "PAUSE";
+        btn.style.background = "#ff4444";
+        btn.style.color = "#fff";
+        
+        // Reset timeline if playing from the end
+        if (parseFloat(document.getElementById('timeIn').value) >= parseFloat(document.getElementById('timeIn').max)) {
+            document.getElementById('timeIn').value = 0;
+        }
+    } else {
+        stopAutoPlay();
+    }
+}
+
+function stopAutoPlay() {
+    isPlaying = false;
+    let btn = document.getElementById('playBtn');
+    btn.innerText = "PLAY AUTO-RUN";
+    btn.style.background = "#00ffcc";
+    btn.style.color = "#000";
+}
+
+function draw() {
+    background(10);
+    
+    let tSlider = document.getElementById('timeIn');
+    let maxTime = parseFloat(tSlider.max);
+    
+    // Auto-advance timeline if playing
+    if (isPlaying) {
+        let nextTime = parseFloat(tSlider.value) + playbackSpeed;
+        if (nextTime >= maxTime) {
+            tSlider.value = maxTime;
+            stopAutoPlay();
+        } else {
+            tSlider.value = nextTime;
+        }
+    }
+
+    const scrubTime = parseFloat(tSlider.value);
+    document.getElementById('timeVal').innerText = Math.round(scrubTime);
+
+    if (mouseIsPressed && mouseY > 100) {
+        offsetX += mouseX - pmouseX;
+        offsetY += mouseY - pmouseY;
+    }
+
+    let zoom = parseFloat(document.getElementById('zIn').value);
+    let scale = (width / (RE * 15)) * (zoom / 5);
+
+    push();
+    translate(offsetX, offsetY);
+
+    // Earth
+    fill(20, 100, 255);
+    noStroke();
+    circle(0, 0, RE * scale * 2);
+
+    // Trajectory up to scrub time
+    noFill(); stroke(255, 100, 0, 150); strokeWeight(1.5);
+    beginShape();
+    let currentPos = trajectory[0];
+    for (let p of trajectory) {
+        if (p.time > scrubTime) break;
+        vertex(p.x * scale, -p.y * scale);
+        currentPos = p; 
+    }
+    endShape();
+
+    // Satellite at scrub position
+    fill(255, 255, 0);
+    noStroke();
+    circle(currentPos.x * scale, -currentPos.y * scale, 10);
+
+    if (currentPos.r < RE + 1) {
+        fill(255, 0, 0); textAlign(CENTER); textSize(30);
+        text("CRASHED", 0, 0);
+    }
+    pop();
+}
+
+function windowResized() { resizeCanvas(windowWidth, windowHeight - 100); }
+</script>
+</body>
+</html>
