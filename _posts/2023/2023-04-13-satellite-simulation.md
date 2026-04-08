@@ -36,6 +36,7 @@ you will need
 .m file to run the simulations.
 
 
+[Alternatively, click here to run the Interactive Satellite Simulation!]({{ site.url }}/assets/satellite.html)
 
 
 These simulations can be used by science undergraduates, and 
