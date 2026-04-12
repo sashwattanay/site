@@ -35,6 +35,12 @@ Welcome to the course page for **Probability and Statistics I**, a course that I
 - *Probability & Statistics for Engineers & Scientists*, 9th Edition - Walpole, Myers, Myers, Ye
 - **Required software:** R and RStudio
 
+
+## Homework 1
+
+Homework 1 is posted [here](https://www.dropbox.com/scl/fi/4ovr14488iq7a352q4b1l/Evaluation_homework.pdf?rlkey=uzlb5sk0vnammjjn0bk6f76a8&dl=0).
+
+
 ## Assessment and Grading
 
 | Component | Weight | Due |
