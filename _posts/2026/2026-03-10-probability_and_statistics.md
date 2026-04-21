@@ -23,8 +23,8 @@ Welcome to the course page for **Probability and Statistics I**, a course that I
 
 - **Instructor:** Sashwat Tanay
 - **Email:** [stanay@utec.edu.pe](mailto:stanay@utec.edu.pe)
-- **Office:** L501 or L502
-- **Office hours:** Book appointment [here](https://calendar.app.google/8ttfKz8R1o8Bx3Sn7)
+- **Office:** P309 (third floor)
+- **Office hours:** By appointment. Book appointment [here](https://calendar.app.google/8ttfKz8R1o8Bx3Sn7)
 
 ## Materials
 
