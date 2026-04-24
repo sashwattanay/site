@@ -38,7 +38,11 @@ Welcome to the course page for **Probability and Statistics I**, a course that I
 
 ## Homework 1
 
-Homework 1 is posted [here](https://www.dropbox.com/scl/fi/4ovr14488iq7a352q4b1l/Evaluation_homework.pdf?rlkey=uzlb5sk0vnammjjn0bk6f76a8&dl=0).
+Homework 1 is posted [here](https://www.dropbox.com/scl/fi/4ovr14488iq7a352q4b1l/Evaluation_homework.pdf?rlkey=uzlb5sk0vnammjjn0bk6f76a8&dl=0). Due May 4th, 7 am (to be submitted via Gradescope)
+
+## Quiz 1
+
+We will have the first quiz in class (with pen and paper) on May 4th.
 
 
 ## Assessment and Grading
