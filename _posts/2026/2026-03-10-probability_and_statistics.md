@@ -36,13 +36,15 @@ Welcome to the course page for **Probability and Statistics I**, a course that I
 - **Required software:** R and RStudio
 
 
-## Homework 1
+## Exercises
 
-Homework 1 is posted [here](https://www.dropbox.com/scl/fi/4ovr14488iq7a352q4b1l/Evaluation_homework.pdf?rlkey=uzlb5sk0vnammjjn0bk6f76a8&dl=0). Due May 4th, 7 am (to be submitted via Gradescope)
+Problems are provided at the end of chapters in the lecture notes (linked above).
 
-## Quiz 1
+## Tests and Exams
 
-We will have the first quiz in class (with pen and paper) on May 4th.
+We will have Quiz 1 in class (with pen and paper) on May 4th; check your email for more details.
+
+We will have the partial exam (pen and paper) on May 15 between 6-8 pm; check your email for more details.
 
 
 ## Assessment and Grading
