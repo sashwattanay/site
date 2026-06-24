@@ -1,6 +1,7 @@
 ---
+layout: page
 title: Resources
-aside: true
+permalink: /resources/
 ---
 
 

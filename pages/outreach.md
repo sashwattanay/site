@@ -1,6 +1,7 @@
 ---
+layout: page
 title: Outreach
-aside: true
+permalink: /outreach/
 ---
 
 

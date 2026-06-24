@@ -1,6 +1,7 @@
 ---
+layout: page
 title: Hobbies
-aside: true
+permalink: /hobbies/
 ---
 
 

@@ -1,8 +1,8 @@
 ---
+layout: page
 title: Teaching
-aside: true
+permalink: /teaching/
 ---
-
 
 
 ### Calculus-based Introductory Physics (Summer 2023)
