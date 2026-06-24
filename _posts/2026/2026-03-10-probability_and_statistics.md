@@ -28,7 +28,7 @@ Welcome to the course page for **Probability and Statistics I**, a course that I
 
 ## Materials
 
-- [Lecture Notes](/assets/2026/probability_and_statistics_notes.pdf)
+- [Lecture Notes](/assets/2026/Probability_and_Statistics_Lecture_Notes_Sashwat_Tanay.pdf)
 - *OpenIntro Statistics*, Fourth Edition — David Diez, Mine Cetinkaya-Rundel, Christopher D. Barr ([freely available here](https://www.biostat.jhsph.edu/~iruczins/teaching/books/2019.openintro.statistics.pdf))
 - *Advanced Engineering Mathematics*, 10th Edition — Erwin Kreyszig
 - *Mathematical Methods for Physics and Engineering*, 3rd Edition - Riley, Hobson and Bence
