@@ -36,6 +36,17 @@ We will maintain the list of sections of the main textbook (Kreyszig) covered [h
 
 ### Chapter 1: First-Order ODEs
 
-- [Python Notebook: ODE Vector Field]({{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/ODE_vector_field.ipynb' | relative_url }})
-- [Python Notebook: One-Variable Function from Contour]({{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/One_variable_function_from_contour_of_two_variable_function.ipynb' | relative_url }})
-- [Python Notebook: Numerical Integration]({{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/Numerical Integration.ipynb' | relative_url }})
+* **ODE Vector Field:**
+  [View on GitHub](https://github.com/sashwattanay/site/blob/main/assets/2026/files_math_for_engineering/1_first_order_ODEs/ODE_vector_field.ipynb) | 
+  [Run in Colab](https://colab.research.google.com/github/sashwattanay/site/blob/main/assets/2026/files_math_for_engineering/1_first_order_ODEs/ODE_vector_field.ipynb) | 
+  <a href="{{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/ODE_vector_field.ipynb' | relative_url }}" download>Download .ipynb</a>
+
+* **One-Variable Function from Contour:**
+  [View on GitHub](https://github.com/sashwattanay/site/blob/main/assets/2026/files_math_for_engineering/1_first_order_ODEs/One_variable_function_from_contour_of_two_variable_function.ipynb) | 
+  [Run in Colab](https://colab.research.google.com/github/sashwattanay/site/blob/main/assets/2026/files_math_for_engineering/1_first_order_ODEs/One_variable_function_from_contour_of_two_variable_function.ipynb) | 
+  <a href="{{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/One_variable_function_from_contour_of_two_variable_function.ipynb' | relative_url }}" download>Download .ipynb</a>
+
+* **Numerical Integration:**
+  [View on GitHub](https://github.com/sashwattanay/site/blob/main/assets/2026/files_math_for_engineering/1_first_order_ODEs/Numerical%20Integration.ipynb) | 
+  [Run in Colab](https://colab.research.google.com/github/sashwattanay/site/blob/main/assets/2026/files_math_for_engineering/1_first_order_ODEs/Numerical%20Integration.ipynb) | 
+  <a href="{{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/Numerical%20Integration.ipynb' | relative_url }}" download>Download .ipynb</a>
