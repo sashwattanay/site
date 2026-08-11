@@ -17,7 +17,7 @@ Welcome to the course page for **Mathematical Methods for Engineering**, a cours
 ## Schedule
 
 - **Thursday:** 7:00 PM - 9:00 PM
-- **Friday:** 6:00 PM - 7:00 PM
+- **Friday:** 6:00 PM - 8:00 PM
 
 ## Instructor Information
 
