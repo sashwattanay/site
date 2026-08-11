@@ -24,9 +24,8 @@ Welcome to the course page for **Mathematical Methods for Engineering**, a cours
 - **Instructor:** Sashwat Tanay
 - **Email:** [stanay@utec.edu.pe](mailto:stanay@utec.edu.pe)
 - **Office:** P309 (third floor)
-- **Office hours:** By appointment. Book appointment [here](https://calendar.app.google/8ttfKz8R1o8Bx3Sn7)
+- **Office hours:** By appointment. Book appointment [here](https://calendar.app.google/SAMVjQMYwFnmPuDM8)
 
 ## Materials
 
 - [Course Syllabus]({{ '/assets/2026/Syllabus_Advanced_Math.pdf' | relative_url }})
-- *Advanced Engineering Mathematics* — Erwin Kreyszig
