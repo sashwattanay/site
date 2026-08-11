@@ -1,0 +1,43 @@
+---
+title: "Binomial to Normal Convergence"
+format: html
+---
+
+## 📊 Parameter Configuration
+
+Adjust the parameters `n` and `p` directly in the R code chunk below. Render the document to observe the changes.
+
+```{r}
+#| label: distribution-plot
+#| message: false
+library(ggplot2)
+
+# ⚙️ DEFINE YOUR PARAMETERS HERE:
+n <- 40
+p <- 0.3
+
+# Generate data for Binomial PMF
+x_vals <-  0:(10*n*p/2)
+df_bin <- data.frame(x = x_vals, pmf = dbinom(x_vals, size = n, prob = p))
+
+# Calculate mean and standard deviation for Normal approximation
+mu <- n * p
+sigma <- sqrt(n * p * (1 - p))
+
+# Render Plot
+ggplot(df_bin, aes(x = x, y = pmf)) +
+  geom_col(fill = "steelblue", alpha = 0.7) +
+  geom_function(
+    fun = dnorm, 
+    args = list(mean = mu, sd = sigma), 
+    color = "firebrick", 
+    linewidth = 1.2
+  ) +
+  labs(
+    title = "Binomial vs. Normal Approximation",
+    subtitle = paste("n =", n, "| p =", p, "| μ =", round(mu, 2), "| σ =", round(sigma, 2)),
+    x = "Number of Successes",
+    y = "Probability"
+  ) +
+  theme_minimal()
+```

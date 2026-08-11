@@ -1,0 +1,152 @@
+---
+title: "The Law of Large Numbers: A Two-Stage Experiment"
+format: html
+execute:
+  warning: false
+  message: false
+---
+
+## 1. RESET AND SIMULATE
+
+### (Click the Green Triangle to Clear Memory and Run Fresh)
+
+This stage involves a conditional experiment: We roll a die; if it's a 1 or 2, the experiment stops. If it's a 3, 4, 5, or 6, we flip a coin. We are tracking the probability of landing on **Tails (T)**.
+
+```{r}
+#| label: simulation-setup
+
+# THE AUTOMATIC BROOM: This clears all variables from R's memory.
+rm(list = ls()) 
+
+# Number of total trials
+N <- 1000000
+
+# Generate data
+die_rolls <- sample(1:6, N, replace = TRUE)
+coin_flips <- sample(c("H", "T"), N, replace = TRUE)
+
+# Logic: If die is 1 or 2 -> "Stop". Otherwise, take the coin flip result.
+final_outcomes <- ifelse(die_rolls %in% c(1, 2), "Stop", coin_flips)
+
+experiment_data <- data.frame(
+  Trial = 1:N,
+  Die_Rolled = die_rolls,
+  Final_Outcome = final_outcomes
+)
+
+# Calculate running probability for Tails (T)
+is_tails <- experiment_data$Final_Outcome == "T"
+running_probability <- cumsum(is_tails) / 1:N
+```
+
+## 2. Manual Verification: The Data Table
+
+Adjust `n_show` to see the individual results of the die rolls and the resulting outcomes.
+
+```{r}
+#| label: manual-table
+# CHANGE THIS NUMBER to show more or fewer rows:
+n_show <- 10 
+
+head(experiment_data, n_show)
+```
+
+## 3. Snapshot Analysis: Computing Specific Trial Slices
+
+This section allows you to pick a specific "cut-off" point early in the experiment to see what the relative frequency looks like at that exact moment.
+
+```{r}
+#| label: snapshot-analysis
+
+# CHOOSE YOUR NUMBER: Set how many first trials to analyze (e.g., 10, 25, 50, 100)
+n_slice <- 400
+
+# Extract the subset and count how many times 'T' appeared
+subset_results <- experiment_data$Final_Outcome[1:n_slice]
+tails_count <- sum(subset_results == "T")
+
+# Calculate the relative frequency for this slice
+slice_freq <- tails_count / n_slice
+
+# Output the findings
+cat("--- Snapshot Analysis for First", n_slice, "Trials ---\n")
+cat("Total Tails Observed :", tails_count, "\n")
+cat("Relative Frequency   :", round(slice_freq, 4), "\n")
+cat("Theoretical Target   :", round(1/3, 4), "\n")
+```
+
+## 4. Manual Verification: The Plot (Early Trials)
+
+The early trials usually show high volatility. As you change `n_show` here, you can see how much the "luck" of the first few flips swings the graph.
+
+```{r}
+#| label: manual-plot
+#| fig-width: 8
+#| fig-height: 4
+
+# CHANGE THIS NUMBER to match the table or show a specific range:
+n_show_plot <- 50
+
+plot(1:n_show_plot, running_probability[1:n_show_plot], 
+     type = "b", pch = 19, col = "blue", lwd = 2,
+     ylim = c(0, 1), xlab = "Trial Number", ylab = "Running Frequency",
+     main = paste("First", n_show_plot, "Trials"))
+
+# Theoretical line: P(Not Stop) * P(Tails) = (4/6) * (1/2) = 1/3
+abline(h = 1/3, col = "red", lwd = 2, lty = 2)
+```
+
+## 5. The Law of Large Numbers (Convergence)
+
+This view shows the full scale of the experiment. Notice how the blue line eventually "sticks" to the red theoretical line.
+
+```{r}
+#| label: full-convergence
+#| fig-width: 8
+#| fig-height: 5
+
+n_limit <- N 
+
+plot(1:n_limit, running_probability[1:n_limit], 
+     type = "l", col = "blue", ylim = c(0, 1), 
+     xlab = "Number of Trials", ylab = "Running Frequency",
+     main = paste("Convergence over", n_limit, "Trials"))
+
+abline(h = 1/3, col = "red", lwd = 2, lty = 2)
+
+legend("topright", legend = c("Running Frequency", "Theoretical (1/3)"), 
+       col = c("blue", "red"), lty = c(1, 2), lwd = c(1.5, 2))
+```
+
+## 6. Analyzing the Error (Convergence Speed)
+
+This log-log plot visualizes how the "distance" between our experimental results and the truth (1/3) shrinks as we collect more data.
+
+```{r}
+#| label: error-analysis
+#| fig-width: 8
+#| fig-height: 5
+
+n_limit_err <- N
+
+# Calculate error
+raw_error <- abs(running_probability[1:n_limit_err] - (1/3))
+
+# Floor the zero-errors to 1e-6 for the log scale
+visual_error <- ifelse(raw_error == 0, 1e-6, raw_error)
+
+plot(1:n_limit_err, visual_error, 
+     type = "l", log = "xy", col = "darkgreen",
+     yaxt = "n", 
+     xlab = "Number of Trials (Log Scale)", 
+     ylab = "Absolute Error (Log Scale)",
+     main = "Error Decay: Convergence towards Zero")
+
+# Custom Y-axis labels
+axis(2, at = c(1, 1e-1, 1e-2, 1e-3, 1e-6), 
+     labels = c("1", "0.1", "0.01", "0.001", "PERFECT"), 
+     las = 1)
+
+grid(equilogs = TRUE, col = "lightgray", lty = "dotted")
+abline(h = 1e-6, col = "gray", lty = 3)
+```

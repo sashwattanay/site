@@ -1,0 +1,199 @@
+---
+title: "First Steps in R and Data Visualization"
+---
+
+## 1. Welcome to RStudio and Quarto (5 Minutes)
+
+Welcome to your first session. R is the programming language, and RStudio is the integrated development environment (IDE)—the software interface we use to interact with R.
+
+RStudio is divided into four main panes: \* **Source (Top Left):** This is the text editor where we write reproducible documents like this Quarto file. \* **Console (Bottom Left):** The engine. When code runs, it executes here. \* **Environment (Top Right):** The workspace memory. It lists all the data and variables R is currently storing. \* **Files/Plots/Help (Bottom Right):** A utility pane to navigate your computer, view generated charts, and read the official R documentation.
+
+### Understanding This Document
+
+This is a **Quarto Document**. It allows us to combine human-readable text (what you are reading now) with executable computer code. Code is contained inside gray boxes called **chunks**.
+
+To run a chunk of code, click the green "Play" button in the top-right corner of the chunk, or place your cursor on a specific line and press `Ctrl + Enter` (Windows) or `Cmd + Enter` (Mac).
+
+As discussed in our virtual session, the full code as a pure text document is displayed when you click "Source" button instead of "Visual" in the top left.
+
+------------------------------------------------------------------------
+
+## 2. R Fundamentals: Math, Variables, and Vectors
+
+### Basic Arithmetic
+
+R can function as a highly advanced calculator. Let's run a simple calculation.
+
+```{r}
+# Lines starting with a hash (#) are comments. R ignores them.
+# They are used to leave notes inside the code chunks.
+150 / 3 + 12
+```
+
+### The Assignment Operator
+
+To save a value so we can use it later, we assign it to a **variable**. A variable is simply a named storage container. We use the assignment operator `<-` (a less-than sign followed by a hyphen).
+
+Run the chunk below and watch the **Environment** pane (Top Right).
+
+```{r}
+# Assign the value 42 to a variable named my_age
+my_age <- 42
+
+# Assign text (a "string") to a variable
+patient_name <- "John Doe"
+
+# To view what is inside a variable, type its name and run the line
+my_age
+```
+
+### Vectors
+
+Often, we need to store more than one number at a time. A **vector** is a one-dimensional array (a sequence) of data elements of the same basic type. We use the `c()` function, which stands for "combine" or "concatenate", to create a vector.
+
+```{r}
+# Create a vector of multiple patient ages
+patient_ages <- c(25, 34, 45, 29, 52)
+
+# Calculate the average (mean) of the vector
+mean(patient_ages)
+```
+
+------------------------------------------------------------------------
+
+## 3. Managing Your Workspace
+
+As you work, your Environment will fill up with variables. It is crucial to know how to manage this memory.
+
+```{r}
+# 1. List all variables currently in memory
+ls()
+
+# 2. Remove a specific variable using the rm() function
+rm(my_age)
+
+# 3. The Nuclear Option: Clear the entire environment.
+# This is highly recommended at the start of a new analysis to prevent old data from interfering.
+rm(list = ls())
+```
+
+------------------------------------------------------------------------
+
+## 4. Importing and Inspecting Data
+
+In statistics, data is rarely typed out manually. We import it from external files. The most common format is a CSV (Comma-Separated Values) file.
+
+When we import a table into R, it is stored as a **Data Frame**. A data frame is a two-dimensional structure where columns represent variables and rows represent observations.
+
+*Note: Ensure the file `exercise_hr.csv` is saved in the exact same folder as this Quarto document.*
+
+```{r}
+# Import the data and assign it to a variable named 'df' (short for data frame)
+df <- read.csv("exercise_hr.csv")
+```
+
+Before visualizing data, we must inspect it to understand its structure. R provides several functions for this.
+
+```{r}
+
+# View the dimensions (Number of Rows, then Number of Columns)
+dim(df)
+```
+
+```{r}
+
+# Peek at the first 6 rows to verify column names and data types
+head(df)
+
+# Get a statistical summary of every column (Min, Max, Mean, Quartiles)
+summary(df)
+```
+
+------------------------------------------------------------------------
+
+## 5. Data Visualization
+
+Visualizations allow us to identify patterns, outliers, and relationships. We access specific columns within our data frame using the `$` operator (e.g., `df$ColumnName`).
+
+### A. Histograms (Distribution of a Numeric Variable)
+
+A histogram groups numerical data into bins to show its distribution. Let's analyze the distribution of exercise minutes and resting heart rates.
+
+```{r}
+
+# Histogram 1: Exercise Minutes
+hist(df$exercise_min,
+     main = "Distribution of Daily Exercise",
+     xlab = "Exercise (minutes/day)",
+     ylab = "Frequency",
+     col = "steelblue",      # Fills the bars with color
+     border = "white")       # Changes the border color of the bars
+```
+
+```{r}
+
+# Histogram 2: Resting Heart Rate
+hist(df$resting_hr,
+     main = "Distribution of Resting Heart Rate",
+     xlab = "Resting HR (bpm)",
+     col = "lightgreen",
+     border = "white")
+```
+
+### B. Bar Plots (Counts of a Categorical Variable)
+
+A bar plot is used for categorical data (text labels or distinct groups). We cannot plot raw text; we must first count how many observations fall into each category using the `table()` function.
+
+```{r}
+# 1. Create a frequency table of the glycemic status
+counts <- table(df$gly_status)
+
+# 2. View the counts
+counts
+
+# 3. Plot the aggregated data
+barplot(counts,
+        main = "Patient Glycemic Status",
+        xlab = "Status Category",
+        ylab = "Number of Patients",
+        col = c("coral", "gold", "lightblue")) # Applying multiple colors
+```
+
+### C. Boxplots (Comparing Numeric Data Across Categories)
+
+We discussed quartiles during our first virtual session.
+
+A boxplot shows the median, quartiles, and outliers of a numeric variable. It is highly effective for comparing a numeric variable across different categories.
+
+We use the tilde `~` operator, which translates to "explained by" or "grouped by".
+
+```{r}
+# Syntax: boxplot(Numeric_Variable ~ Categorical_Variable)
+boxplot(df$resting_hr ~ df$gly_status,
+        main = "Resting HR by Glycemic Status",
+        ylab = "Resting HR (bpm)",
+        xlab = "Glycemic Status",
+        col = "plum")
+```
+
+### D. Scatter Plots (Relationship Between Two Numeric Variables)
+
+A scatter plot displays individual data points on an X and Y axis to reveal correlations.
+
+```{r}
+# Syntax: plot(X_Variable, Y_Variable)
+plot(df$exercise_min, df$resting_hr,
+     main = "Exercise Duration vs. Resting Heart Rate",
+     xlab = "Exercise (minutes/day)",
+     ylab = "Resting HR (bpm)",
+     pch = 19,               # Uses solid circles instead of empty rings
+     col = rgb(0, 0, 0, 0.4)) # Uses black (0,0,0) with 40% opacity (0.4) to handle overlapping points
+```
+
+------------------------------------------------------------------------
+
+## 6. Rendering Your Report
+
+You have successfully written code, managed memory, imported data, and built visualizations.
+
+To convert this entire interactive document into a finalized, shareable HTML report, click the **Render** button at the top of the Source pane. RStudio will execute the code chronologically and compile the output.

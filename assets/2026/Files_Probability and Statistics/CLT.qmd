@@ -1,0 +1,153 @@
+---
+title: "The Central Limit Theorem: Parameter Breakdown"
+author: "Probability Class Demonstration"
+format: html
+---
+
+## 🎯 The Central Limit Theorem (CLT)
+
+The Central Limit Theorem states that the distribution of sample means approximates a normal distribution as the sample size $n$ increases.
+
+$$ \bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right). $$
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(ggplot2)
+set.seed(42)
+```
+
+------------------------------------------------------------------------
+
+## 🧠 Clarifying the Three Parameters
+
+To simulate the CLT, we strictly require three distinct numbers. Think of this as drawing balls from a giant bucket.
+
+-   🌍 **1. `universe_size`:** The total number of balls inside the giant bucket. This defines our underlying, non-normal population. We only generate this bucket once.
+-   🥄 **2. `sample_size` (**$n$): The size of our scoop. How many balls do we pull out of the bucket *at one time* to calculate a single average?
+-   🔄 **3. `repetitions`:** How many times do we dip our scoop into the bucket, calculate the average, and write that average down on a piece of paper? We need a large number of repetitions to draw a smooth bell curve at the end.
+
+------------------------------------------------------------------------
+
+## ⚙️ 1. Parameter Configuration
+
+Define the mathematical environment using the three distinct parameters explained above.
+
+```{r}
+#| label: parameters
+
+# 📊 DISTRIBUTION TYPE
+# Choose the shape of the balls in the bucket: "Exponential", "Uniform", or "U-Shaped"
+chosen_distribution <- "Exponential"
+
+# 🌍 PARAMETER 1: THE BUCKET
+# How many total items exist in our underlying universe?
+universe_size <- 1000000
+
+# 🔄 PARAMETER 3: THE REPETITIONS
+# How many sample means will we calculate to build the final normal curve?
+repetitions <- 50000
+```
+
+------------------------------------------------------------------------
+
+## 📉 2. Generating the Universe
+
+We fill the bucket based on your chosen distribution.
+
+```{r}
+#| label: define-population
+
+# Fill the bucket with 'universe_size' number of items
+if (chosen_distribution == "Exponential") {
+  bucket_of_data <- rexp(universe_size, rate = 1)
+} else if (chosen_distribution == "Uniform") {
+  bucket_of_data <- runif(universe_size, min = 0, max = 10)
+} else if (chosen_distribution == "U-Shaped") {
+  bucket_of_data <- rbeta(universe_size, shape1 = 0.5, shape2 = 0.5)
+} else {
+  stop("Invalid distribution selected.")
+}
+
+pop_data <- data.frame(Value = bucket_of_data)
+
+# 🖼️ Plot the entire bucket to show its non-normal shape
+# boundary = 0 strictly aligns the first bin to prevent negative space leaking
+ggplot(pop_data, aes(x = Value)) +
+  geom_histogram(bins = 50, fill = "gray30", color = "white", boundary = 0) +
+  labs(
+    title = paste("The Underlying Universe:", chosen_distribution), 
+    subtitle = paste("Total items in bucket:", format(universe_size, scientific = FALSE)),
+    y = "Frequency"
+  ) +
+  theme_minimal()
+```
+
+------------------------------------------------------------------------
+
+## 🎲 3. The Sampling Function
+
+This function executes the "scooping" process. It requires the bucket, the size of the scoop (`sample_size`), and the number of times to dip the scoop (`repetitions`).
+
+```{r}
+#| label: sampling-function
+
+get_sample_means <- function(bucket, scoop_size_n, total_dips) {
+  
+  # Create an empty list to store the averages we calculate
+  recorded_averages <- numeric(total_dips)
+  
+  # Dip into the bucket 'total_dips' times
+  for (i in 1:total_dips) {
+    
+    # Scoop out 'scoop_size_n' items
+    current_scoop <- sample(bucket, size = scoop_size_n, replace = TRUE)
+    
+    # Calculate the average of this single scoop and record it
+    recorded_averages[i] <- mean(current_scoop)
+  }
+  
+  return(data.frame(
+    Sample_Mean = recorded_averages, 
+    Sample_Size_Label = paste("n =", scoop_size_n)
+  ))
+}
+```
+
+------------------------------------------------------------------------
+
+## 🚀 4. Executing the Simulation
+
+We test the theory by changing **Parameter 2** (`sample_size` or $n$). We will use a scoop of 1, a scoop of 10, and a scoop of 30. We repeat each scooping process 50,000 times.
+
+```{r}
+#| label: run-simulation
+
+# 🥄 PARAMETER 2: THE SCOOP SIZE (n)
+# Execute the simulation for n=1, n=10, and n=30
+results_n1  <- get_sample_means(bucket_of_data, scoop_size_n = 1,  total_dips = repetitions)
+results_n10 <- get_sample_means(bucket_of_data, scoop_size_n = 10, total_dips = repetitions)
+results_n30 <- get_sample_means(bucket_of_data, scoop_size_n = 3000, total_dips = repetitions)
+
+# Combine the recorded averages for plotting
+all_results <- rbind(results_n1, results_n10, results_n30)
+
+# Lock factor levels to maintain sequential plotting
+all_results$Sample_Size_Label <- factor(
+  all_results$Sample_Size_Label, 
+  levels = unique(all_results$Sample_Size_Label)
+)
+
+# 🖼️ Plot the progression
+# Added boundary = 0 to prevent spurious non-monotonicity at n = 1
+ggplot(all_results, aes(x = Sample_Mean)) +
+  geom_histogram(aes(y = after_stat(density)), bins = 40, fill = "steelblue", color = "white", boundary = 0) +
+  facet_wrap(~Sample_Size_Label, scales = "free") +
+  labs(
+    title = paste("CLT Convergence:", chosen_distribution, "Universe"), 
+    subtitle = "Notice the progression toward a symmetrical normal distribution as the scoop size (n) increases."
+  ) +
+  theme_minimal()
+```

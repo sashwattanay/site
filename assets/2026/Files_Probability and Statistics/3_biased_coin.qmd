@@ -1,0 +1,93 @@
+---
+title: "Coin Flip Simulation"
+format: html
+editor: source
+---
+
+## Simulation Setup
+
+This document performs a coin flip simulation. We begin by loading the necessary visualization library and defining our core parameters: the total number of simulations and the theoretical probability of flipping heads.
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+# THE AUTOMATIC BROOM
+rm(list = ls()) 
+
+# Load ggplot2 for visualization
+library(ggplot2)
+
+# Define simulation parameters
+total_sims <- 1000
+prob_heads <- 0.05
+
+# Note: set.seed() is omitted to ensure non-repeatable, random results on each run.
+```
+
+## Executing the Simulation
+
+Next, we run the simulation using the `sample` function. The results are stored in a data frame so they can be easily plotted and analyzed in the subsequent sections.
+
+```{r}
+#| label: simulate
+
+# Simulate the coin flips
+flips <- sample(
+  x = c("Heads", "Tails"),
+  size = total_sims,
+  replace = TRUE,
+  prob = c(prob_heads, 1 - prob_heads)
+)
+
+# Convert to data frame
+results_df <- data.frame(Outcome = flips)
+```
+
+## Visualizing the Results
+
+The following bar plot visualizes the frequency of Heads versus Tails across all simulated trials.
+
+```{r}
+#| label: visualization
+#| echo: false
+
+# Create a bar plot of the outcomes
+ggplot(results_df, aes(x = Outcome)) +
+  geom_bar(fill = c("steelblue", "darkgray"), color = "black", width = 0.6) +
+  theme_minimal() +
+  labs(
+    title = paste("Histogram of", total_sims, "Coin Flips"),
+    x = "Coin Face",
+    y = "Count"
+  )
+```
+
+## Summary Statistics
+
+Finally, we calculate the exact totals and fractions for each outcome to see how closely our empirical results match the theoretical probability.
+
+```{r}
+#| label: statistics
+#| echo: false
+
+# Calculate total occurrences
+heads_count <- sum(results_df$Outcome == "Heads")
+tails_count <- sum(results_df$Outcome == "Tails")
+
+# Calculate fractions
+heads_fraction <- heads_count / total_sims
+tails_fraction <- tails_count / total_sims
+
+# Output the final statistics
+cat("--- Simulation Results ---\n")
+cat("Total Simulations Ran :", total_sims, "\n")
+cat("Target Prob. of Heads :", prob_heads, "\n\n")
+
+cat("Total Heads           :", heads_count, "\n")
+cat("Total Tails           :", tails_count, "\n\n")
+
+cat("Fraction of Heads     :", heads_fraction, "\n")
+cat("Fraction of Tails     :", tails_fraction, "\n")
+```

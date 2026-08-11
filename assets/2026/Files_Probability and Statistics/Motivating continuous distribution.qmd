@@ -1,0 +1,193 @@
+---
+title: "Interactive Distribution Limits"
+format: html
+execute:
+  echo: true
+  warning: false
+---
+
+## 📦 Computational Dependencies and Setup
+
+This initial cell clears the workspace environment to prevent variable interference, then loads the plotting mechanisms and spatial layout utilities required to construct the charts.
+
+```{r}
+#| label: setup
+
+# Clear workspace memory to maintain environment hygiene
+rm(list = ls())
+
+library(ggplot2)   # Core grammar of graphics engine
+library(patchwork) # Grid assembly layout utility
+```
+
+## 📊 Output 1: Standalone Variable Histogram
+
+Modify the parameters inside this chunk to instantly regenerate the sample volume and bin resolution for the single plot.
+
+```{r}
+#| label: single-histogram
+#| fig-width: 8
+#| fig-height: 5
+
+# 🛠️ USER PARAMETERS: Modify these values to regenerate the plot
+DRAWS_SINGLE <- 1000000  # Total random observations drawn
+BINS_SINGLE  <- 20      # Number of discrete bars across the domain
+
+# Execute simulation
+set.seed(42)
+data_single <- data.frame(x = rnorm(DRAWS_SINGLE))
+
+# Render visualization
+ggplot(data_single, aes(x = x)) +
+  # after_stat(density) normalizes the area under the bars to equal 1 (the continuous scale)
+  geom_histogram(aes(y = after_stat(density)), bins = BINS_SINGLE, 
+                 fill = "steelblue", color = "black", alpha = 0.7) +
+  # Overlay the limiting theoretical continuous standard normal curve
+  stat_function(fun = dnorm, color = "red", linewidth = 1) +
+  labs(title = paste("Single Target Histogram (Draws =", DRAWS_SINGLE, "| Bins =", BINS_SINGLE, ")"),
+       x = "Value (x)", y = "Density") +
+  theme_minimal()
+```
+
+## 🎛️ Output 2: Four-Panel Convergence Matrix
+
+Modify the parameters below to control the uniform draw size and individual bin properties across the four quadrant subplots.
+
+```{r}
+#| label: matrix-histogram
+#| fig-width: 10
+#| fig-height: 8
+
+# 🛠️ USER PARAMETERS: Modify these values to control the matrix grid
+DRAWS_MATRIX <- 1000000  # Uniform sample size applied to all subplots
+SUBPLOT_BIN_1 <- 5       # Bin count for Top-Left Panel
+SUBPLOT_BIN_2 <- 15      # Bin count for Top-Right Panel
+SUBPLOT_BIN_3 <- 40      # Bin count for Bottom-Left Panel
+SUBPLOT_BIN_4 <- 100     # Bin count for Bottom-Right Panel
+
+# Execute simulation
+set.seed(42)
+data_matrix <- data.frame(x = rnorm(DRAWS_MATRIX))
+
+# Automation function to build standard subplots systematically
+build_panel <- function(df, target_bins, panel_title) {
+  ggplot(df, aes(x = x)) +
+    geom_histogram(aes(y = after_stat(density)), bins = target_bins, 
+                   fill = "seagreen", color = "black", alpha = 0.6, linewidth = 0.2) +
+    stat_function(fun = dnorm, color = "red", linewidth = 0.8) +
+    labs(title = panel_title, x = "Value (x)", y = "Density") +
+    theme_minimal()
+}
+
+# Compile individual quadrant layouts
+p1 <- build_panel(data_matrix, SUBPLOT_BIN_1, paste("Panel A: Bins =", SUBPLOT_BIN_1))
+p2 <- build_panel(data_matrix, SUBPLOT_BIN_2, paste("Panel B: Bins =", SUBPLOT_BIN_2))
+p3 <- build_panel(data_matrix, SUBPLOT_BIN_3, paste("Panel C: Bins =", SUBPLOT_BIN_3))
+p4 <- build_panel(data_matrix, SUBPLOT_BIN_4, paste("Panel D: Bins =", SUBPLOT_BIN_4))
+
+# Assemble the 2x2 multi-panel layout using patchwork syntax
+(p1 | p2) / (p3 | p4) + 
+  plot_annotation(title = paste("Asymptotic Convergence Matrix (Total Matrix Draws =", DRAWS_MATRIX, ")"))
+```
+
+## 📐 Numerical Integration: Computing Areas in R
+
+The symbolic area represented by $\int_{a}^{b} f(x) \, dx$ can be computed numerically in R using the built-in `integrate()` function. This allows us to determine the precise area under any general continuous curve. The accompanying plot visually demarcates the boundaries of the interval being integrated.
+
+```{r}
+#| label: general-area-computation
+
+# Define the target function
+target_function <- function(x) { sin(x) }
+
+# Define the lower boundary (a) and upper boundary (b)
+lower_limit <- 0
+upper_limit <- pi
+
+# Calculate the area under the function between the specified limits
+integration_result <- integrate(f = target_function, lower = lower_limit, upper = upper_limit)
+
+# Display the comprehensive output
+print(integration_result)
+
+# Define plotting range to provide visual context around the boundaries
+plot_min <- lower_limit - 1
+plot_max <- upper_limit + 1
+
+# Render visualization of the function with integration limits demarcated
+ggplot(data.frame(x = c(plot_min, plot_max)), aes(x = x)) +
+  stat_function(fun = target_function, color = "blue", linewidth = 1) +
+  geom_vline(xintercept = c(lower_limit, upper_limit), color = "red", linetype = "dashed", linewidth = 0.8) +
+  labs(title = "Area Computation: f(x) = sin(x)",
+       x = "x", y = "f(x)") +
+  theme_minimal()
+```
+
+## 📈 Visualizing and Verifying the Normal Distribution
+
+By defining universal integration boundaries, we can construct the normal distribution curve and simultaneously calculate its area, expected value, and variance.
+
+Changing the `LOWER_BND` and `UPPER_BND` parameters will recalculate the integrals for that specific interval and automatically draw vertical boundary lines on the plot to visually demarcate the area being considered.
+
+```{r}
+#| label: normal-visualization-and-integration
+
+# Define physical distribution parameters
+mu_val <- 5
+sigma_val <- 2
+
+# Define integration limits (Default: -Inf to Inf to verify total distribution)
+LOWER_BND <- -Inf
+UPPER_BND <- Inf
+
+# Define the normal probability density function (PDF)
+pdf_func <- function(x) { dnorm(x, mean = mu_val, sd = sigma_val) }
+
+# 1. Area: Integral of f(x)
+calc_area <- integrate(pdf_func, lower = LOWER_BND, upper = UPPER_BND)$value
+cat("Computed Area:", calc_area, "\n")
+
+# 2. Expected Value: Integral of x * f(x)
+expected_func <- function(x) { x * pdf_func(x) }
+calc_mean <- integrate(expected_func, lower = LOWER_BND, upper = UPPER_BND)$value
+cat("Target Mean:", mu_val, "| Computed Expected Value:", calc_mean, "\n")
+
+# 3. Variance: Integral of (x - mu)^2 * f(x)
+variance_func <- function(x) { (x - mu_val)^2 * pdf_func(x) }
+calc_var <- integrate(variance_func, lower = LOWER_BND, upper = UPPER_BND)$value
+cat("Target Variance:", sigma_val^2, "| Computed Variance:", calc_var, "\n")
+
+# Render the normal distribution curve spanning 4 standard deviations
+plot_min <- mu_val - 4 * sigma_val
+plot_max <- mu_val + 4 * sigma_val
+
+ggplot(data.frame(x = c(plot_min, plot_max)), aes(x = x)) +
+  stat_function(fun = pdf_func, color = "blue", linewidth = 1) +
+  # Add vertical lines to demarcate the integration limits (visible if finite)
+  geom_vline(xintercept = c(LOWER_BND, UPPER_BND), color = "red", linetype = "dashed", linewidth = 0.8) +
+  labs(title = paste("Normal Distribution (mu =", mu_val, ", sigma =", sigma_val, ")"),
+       x = "Value (x)", y = "Density f(x)") +
+  theme_minimal()
+```
+
+## 📉 Computing Probabilities via Z-Scores
+
+For any normal distribution, the probability (area) to the left of a specific threshold depends entirely on the standardized Z-score. Because of this, we do not need to integrate custom functions repeatedly.
+
+In R, the `pnorm(z)` function natively computes the left-tail area of a standard normal distribution based solely on the Z-score. We use this to instantly calculate the probabilities associated with the empirical rule.
+
+```{r}
+#| label: empirical-rule-pnorm
+
+# 1 Standard Deviation (Z between -1 and 1)
+area_1 <- pnorm(1) - pnorm(-1)
+cat("Area within 1 sigma (+/- 1Z):", round(area_1 * 100, 2), "%\n")
+
+# 2 Standard Deviations (Z between -2 and 2)
+area_2 <- pnorm(2) - pnorm(-2)
+cat("Area within 2 sigma (+/- 2Z):", round(area_2 * 100, 2), "%\n")
+
+# 3 Standard Deviations (Z between -3 and 3)
+area_3 <- pnorm(3) - pnorm(-3)
+cat("Area within 3 sigma (+/- 3Z):", round(area_3 * 100, 2), "%\n")
+```

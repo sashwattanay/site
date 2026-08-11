@@ -1,0 +1,190 @@
+---
+title: "The Law of Large Numbers: Mean and Variance"
+format: html
+execute:
+  warning: false
+  message: false
+---
+
+## 1. RESET AND SIMULATE
+
+### (Event: Rolling a Fair Die)
+
+This cell clears memory and simulates rolling a single die. Instead of tracking a specific face, we are tracking the **Running Mean** (the average of all rolls so far) and the **Running Variance** (the spread of the rolls).
+
+For a fair 6-sided die: Theoretical Mean = **3.5**
+
+Theoretical Variance = **35/12** (approx. 2.9167)
+
+```{r}
+#| label: simulation-setup
+
+# THE AUTOMATIC BROOM
+rm(list = ls()) 
+
+# Number of total trials
+N <- 1000000
+
+# Generate N die rolls
+die_rolls <- sample(1:6, N, replace = TRUE)
+
+# Calculate running mean
+running_mean <- cumsum(die_rolls) / 1:N
+
+# Calculate running variance using Var(X) = E[X^2] - (E[X])^2
+running_mean_sq <- cumsum(die_rolls^2) / 1:N
+running_var <- running_mean_sq - (running_mean^2)
+
+# Combine into data frame
+experiment_data <- data.frame(
+  Trial = 1:N,
+  Die_Rolled = die_rolls,
+  Current_Mean = running_mean,
+  Current_Var = running_var
+)
+
+# Set targets for later use
+theory_mean <- 3.5
+theory_var <- 35/12
+```
+
+## 2. Manual Verification: The Data Table
+
+Adjust `n_show` to show the students the raw results. They can see how the mean and variance wildly fluctuate in the first few rolls before starting to settle.
+
+```{r}
+#| label: manual-table
+n_show <- 10 
+
+head(experiment_data, n_show)
+```
+
+## 3. Snapshot Analysis: Computing Specific Trial Slices
+
+This section allows you to choose a specific number of early trials to see the calculated Mean and Variance at that exact moment.
+
+```{r}
+#| label: snapshot-analysis
+
+# CHOOSE YOUR NUMBER: Set how many first trials to analyze
+n_slice <- 1000000
+
+# Output the results directly into the report
+cat("--- Analysis for the First", n_slice, "Trials ---\n\n")
+
+cat("[ THE MEAN ]\n")
+cat("Observed Mean        : ", round(experiment_data$Current_Mean[n_slice], 4), "\n")
+cat("Theoretical Target   :  3.5000 \n\n")
+
+cat("[ THE VARIANCE ]\n")
+cat("Observed Variance    : ", round(experiment_data$Current_Var[n_slice], 4), "\n")
+cat("Theoretical Target   : ", round(theory_var, 4), "\n")
+```
+
+## 4. Manual Verification: The Plots (Early Chaos)
+
+This shows the "chaos" at the start of the experiment. We look at the first 50 rolls to see how wildly both the running average and the running variance bounce around before the Law of Large Numbers takes over.
+
+```{r}
+#| label: manual-plot
+#| fig-width: 10
+#| fig-height: 5
+
+n_show_plot <- 50 
+
+# Set up side-by-side plots
+par(mfrow = c(1, 2))
+
+# Plot 1: Chaos of the Mean
+plot(1:n_show_plot, experiment_data$Current_Mean[1:n_show_plot], 
+     type = "b", pch = 19, col = "blue", lwd = 2,
+     ylim = c(1, 6), xlab = "Trial Number", ylab = "Running Mean",
+     main = paste("First", n_show_plot, "Trials: Mean"))
+abline(h = theory_mean, col = "red", lwd = 2, lty = 2)
+
+# Plot 2: Chaos of the Variance
+plot(1:n_show_plot, experiment_data$Current_Var[1:n_show_plot], 
+     type = "b", pch = 19, col = "darkorange", lwd = 2,
+     ylim = c(0, 8), xlab = "Trial Number", ylab = "Running Variance",
+     main = paste("First", n_show_plot, "Trials: Variance"))
+abline(h = theory_var, col = "red", lwd = 2, lty = 2)
+
+# Reset plot layout
+par(mfrow = c(1, 1))
+```
+
+## 5. The Law of Large Numbers (Convergence)
+
+As the trials increase, the "noise" disappears. Here we plot the convergence of both the Mean and the Variance over the full experiment. We use a logarithmic scale on the X-axis to highlight the long-term stabilization.
+
+```{r}
+#| label: full-convergence
+#| fig-width: 10
+#| fig-height: 5
+
+n_limit <- N
+
+# Set up side-by-side plots
+par(mfrow = c(1, 2))
+
+# Plot Mean Convergence
+plot(1:n_limit, experiment_data$Current_Mean[1:n_limit], 
+     type = "l", col = "blue", log = "x", ylim = c(2, 5), 
+     xlab = "Number of Trials (Log Scale)", ylab = "Running Mean",
+     main = paste("Mean Convergence"))
+abline(h = theory_mean, col = "red", lwd = 2, lty = 2)
+
+# Plot Variance Convergence
+plot(1:n_limit, experiment_data$Current_Var[1:n_limit], 
+     type = "l", col = "darkorange", log = "x", ylim = c(1, 5), 
+     xlab = "Number of Trials (Log Scale)", ylab = "Running Variance",
+     main = paste("Variance Convergence"))
+abline(h = theory_var, col = "red", lwd = 2, lty = 2)
+
+# Reset plot layout
+par(mfrow = c(1, 1))
+```
+
+## 6. Analyzing the Error (Convergence Speed)
+
+The log-log plots show the error magnitude decreasing towards zero.
+
+```{r}
+#| label: error-analysis
+#| fig-width: 10
+#| fig-height: 5
+
+n_limit_err <- N
+
+# Calculate absolute differences
+mean_error <- abs(experiment_data$Current_Mean[1:n_limit_err] - theory_mean)
+var_error <- abs(experiment_data$Current_Var[1:n_limit_err] - theory_var)
+
+# Floor the zero-errors to 1e-6 for the log plot spikes
+vis_mean_err <- ifelse(mean_error == 0, 1e-6, mean_error)
+vis_var_err <- ifelse(var_error == 0, 1e-6, var_error)
+
+# Set up side-by-side plots
+par(mfrow = c(1, 2))
+
+# Plot Mean Error Decay
+plot(1:n_limit_err, vis_mean_err, 
+     type = "l", log = "xy", col = "darkgreen", yaxt = "n", 
+     xlab = "Number of Trials (Log Scale)", ylab = "Absolute Error (Log Scale)",
+     main = "Mean Error Decay")
+axis(2, at = c(1, 1e-1, 1e-2, 1e-3, 1e-6), labels = c("1", "0.1", "0.01", "0.001", "PERFECT"), las = 1)
+grid(equilogs = TRUE, col = "lightgray", lty = "dotted")
+abline(h = 1e-6, col = "gray", lty = 3)
+
+# Plot Variance Error Decay
+plot(1:n_limit_err, vis_var_err, 
+     type = "l", log = "xy", col = "purple", yaxt = "n", 
+     xlab = "Number of Trials (Log Scale)", ylab = "Absolute Error (Log Scale)",
+     main = "Variance Error Decay")
+axis(2, at = c(1, 1e-1, 1e-2, 1e-3, 1e-6), labels = c("1", "0.1", "0.01", "0.001", "PERFECT"), las = 1)
+grid(equilogs = TRUE, col = "lightgray", lty = "dotted")
+abline(h = 1e-6, col = "gray", lty = 3)
+
+# Reset plot layout
+par(mfrow = c(1, 1))
+```

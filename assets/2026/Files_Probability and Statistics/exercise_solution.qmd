@@ -1,0 +1,84 @@
+## Problem 1
+
+```{r}
+#| label: fig-mean-variance
+#| fig-cap: "Theoretical Mean and Variance as a function of the probability of heads."
+
+p <- seq(0, 1, by = 0.01)
+mu <- 1 - p
+variance <- p * (1 - p)
+
+plot(p, mu, type = "l", col = "red", lwd = 2, ylim = c(0, 1),
+     xlab = "Probability of Heads (p)", ylab = "Value", 
+     main = "Mean and Variance vs. Probability of Heads")
+lines(p, variance, col = "blue", lwd = 2)
+legend("topright", legend = c("Mean", "Variance"), 
+       col = c("red", "blue"), lwd = 2)
+```
+
+## Problem 2
+
+```{r}
+#| label: fig-invalid-pdfs
+#| fig-cap: "Visual and numerical verification of invalid continuous PDFs."
+#| layout-ncol: 3
+
+# --- Part (a): Infinite Area ---
+x_a <- seq(-5, 5, length.out = 100)
+plot(x_a, x_a^2, type = "l", col = "red", lwd = 2,
+     xlab = "x", ylab = "f(x)", main = "f(x) = x^2 (Area -> Inf)")
+
+# --- Part (b): Area != 1 ---
+x_b <- seq(0, 2, length.out = 100)
+plot(x_b, x_b, type = "l", col = "orange", lwd = 2,
+     xlab = "x", ylab = "f(x)", main = "f(x) = x on [0,2]")
+
+# --- Part (c): Negative Values ---
+x_c <- seq(-1, 1, length.out = 100)
+plot(x_c, x_c^3, type = "l", col = "purple", lwd = 2,
+     xlab = "x", ylab = "f(x)", main = "f(x) = x^3 on [-1,1]")
+abline(h = 0, lty = 2, col="black") # Highlights the negative region
+
+# Prove area is not 1
+func_b <- function(x) { x }
+area_b <- integrate(func_b, lower = 0, upper = 2)
+print(paste("Area for (b) is:", area_b$value))
+
+# Prove area integrates to 0, not 1
+func_c <- function(x) { x^3 }
+area_c <- integrate(func_c, lower = -1, upper = 1)
+print(paste("Area for (c) is:", area_c$value))
+```
+
+## Problem 6
+
+```{r}
+#| label: z-score-verification
+#| fig-cap: "Verification of equivalent left-tail probabilities."
+
+# Verify probabilities using the built-in integrate function 🧮
+area_1 <- integrate(function(x) dnorm(x, mean = 50, sd = 10), lower = -Inf, upper = 65)$value
+area_2 <- integrate(function(x) dnorm(x, mean = 80, sd = 15), lower = -Inf, upper = 102.5)$value
+
+cat("P(X1 <= 65):    ", area_1, "\n")
+cat("P(X2 <= 102.5): ", area_2, "\n")
+
+# Visual verification 📊
+par(mfrow=c(1,2))
+
+# Plot for X1 🔵
+x1_vals <- seq(20, 80, length.out=100)
+y1_vals <- dnorm(x1_vals, mean=50, sd=10)
+plot(x1_vals, y1_vals, type="l", col="blue", lwd=2, 
+     main="X1 ~ N(50, 10)", xlab="x1", ylab="Density")
+polygon(c(20, x1_vals[x1_vals<=65], 65), 
+        c(0, y1_vals[x1_vals<=65], 0), col=rgb(0,0,1,0.3))
+
+# Plot for X2 🔴
+x2_vals <- seq(35, 125, length.out=100)
+y2_vals <- dnorm(x2_vals, mean=80, sd=15)
+plot(x2_vals, y2_vals, type="l", col="red", lwd=2, 
+     main="X2 ~ N(80, 15)", xlab="x2", ylab="Density")
+polygon(c(35, x2_vals[x2_vals<=102.5], 102.5), 
+        c(0, y2_vals[x2_vals<=102.5], 0), col=rgb(1,0,0,0.3))
+```
