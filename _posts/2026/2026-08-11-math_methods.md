@@ -26,6 +26,13 @@ Welcome to the course page for **Mathematical Methods for Engineering**, a cours
 - **Office:** P309 (third floor)
 - **Office hours:** By appointment. Book appointment [here](https://calendar.app.google/SAMVjQMYwFnmPuDM8)
 
-## Materials
+## Syllabus
 
 - [Course Syllabus]({{ '/assets/2026/Syllabus_Advanced_Math.pdf' | relative_url }})
+
+## Supplemental Material
+
+### Chapter 1: First-Order ODEs
+
+- [Python Code: ODE Vector Field Notebook]({{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/ODE_vector_field.ipynb' | relative_url }})
+- [Python Code: One-Variable Function from Contour Notebook]({{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/One_variable_function_from_contour_of_two_variable_function.ipynb' | relative_url }})
