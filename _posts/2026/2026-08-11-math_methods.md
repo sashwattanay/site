@@ -34,5 +34,5 @@ Welcome to the course page for **Mathematical Methods for Engineering**, a cours
 
 ### Chapter 1: First-Order ODEs
 
-- [Python Code: ODE Vector Field Notebook]({{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/ODE_vector_field.ipynb' | relative_url }})
-- [Python Code: One-Variable Function from Contour Notebook]({{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/One_variable_function_from_contour_of_two_variable_function.ipynb' | relative_url }})
+- [Python Notebook: ODE Vector Field]({{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/ODE_vector_field.ipynb' | relative_url }})
+- [Python Notebook: One-Variable Function from Contour]({{ '/assets/2026/files_math_for_engineering/1_first_order_ODEs/One_variable_function_from_contour_of_two_variable_function.ipynb' | relative_url }})
