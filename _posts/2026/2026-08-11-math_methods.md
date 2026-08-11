@@ -30,7 +30,7 @@ Welcome to the course page for **Mathematical Methods for Engineering**, a cours
 
 - [Course Syllabus]({{ '/assets/2026/Syllabus_Advanced_Math.pdf' | relative_url }})
 
-We will maintain the list of sections of the main textbook (Kreyszig) covered [here](https://docs.google.com/document/d/1hBAQmqZsGWXtYQeQ4oJuBDV8snal5aHcmLjOvpUlW7E/edit?usp=sharing)
+- We will maintain the list of sections of the main textbook (Kreyszig) covered [here](https://docs.google.com/document/d/1hBAQmqZsGWXtYQeQ4oJuBDV8snal5aHcmLjOvpUlW7E/edit?usp=sharing)
 
 ## Supplemental Material
 
