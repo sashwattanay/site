@@ -34,9 +34,7 @@ This document also contains a list of homework problems from the main textbook.
 
 ## Supplemental Material
 
-Lecture notes on material not found in the main textbook are [here](https://www.dropbox.com/scl/fi/z4l7lbev5z98wszzy9awk/Lecture_Notes.pdf?rlkey=zna89dszp2n2hun6f3p3dwvxe&dl=0). 
-
-Computer codes used in during the lecture can be found below.
+Lecture notes on material not found in the main textbook are [here](https://www.dropbox.com/scl/fi/z4l7lbev5z98wszzy9awk/Lecture_Notes.pdf?rlkey=zna89dszp2n2hun6f3p3dwvxe&dl=0). Computer codes used in during the lecture can be found below.
 
 * **ODE Vector Field:**
   [View on GitHub](https://github.com/sashwattanay/site/blob/main/assets/2026/files_math_for_engineering/1_first_order_ODEs/ODE_vector_field.ipynb) | 
