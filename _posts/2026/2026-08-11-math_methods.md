@@ -26,7 +26,7 @@ Welcome to the course page for **Mathematical Methods for Engineering**, a cours
 - **Office:** P309 (third floor)
 - **Office hours:** By appointment. Book appointment [here](https://calendar.app.google/SAMVjQMYwFnmPuDM8)
 
-## Syllabus
+## Syllabus and Course Material
 
 - [Course Syllabus]({{ '/assets/2026/Syllabus_Advanced_Math.pdf' | relative_url }})
 - We will maintain the list of sections of the main textbook (Kreyszig) covered [here](https://docs.google.com/document/d/1hBAQmqZsGWXtYQeQ4oJuBDV8snal5aHcmLjOvpUlW7E/edit?usp=sharing).
