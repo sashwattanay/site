@@ -12,7 +12,7 @@ Welcome to the course page for **Mathematical Methods for Engineering**, a cours
 ## Course Information
 
 - **Course:** Mathematical Methods for Engineering (MCI8101)
-- **Classroom:** A602
+- **Classroom:** A908 (except for 27 August when we will meet in A903)
 
 ## Schedule
 
