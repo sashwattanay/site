@@ -32,6 +32,10 @@ Welcome to the course page for **Mathematical Methods for Engineering**, a cours
 - We will maintain the list of sections of the main textbook (Kreyszig) covered [here](https://docs.google.com/document/d/1hBAQmqZsGWXtYQeQ4oJuBDV8snal5aHcmLjOvpUlW7E/edit?usp=sharing).
 This document also contains a list of homework problems from the main textbook.
 
+## Viva Schedule
+
+Viva schedule along with the venue can be found [here](https://docs.google.com/document/d/1IJ53RCBDvwfaaoDa_5AhbTYdLFggwOCMRKTmT3J5ow8/edit?usp=sharing).
+
 ## Supplemental Material
 
 Lecture notes on material not found in the main textbook are [here](https://www.dropbox.com/scl/fi/z4l7lbev5z98wszzy9awk/Lecture_Notes.pdf?rlkey=zna89dszp2n2hun6f3p3dwvxe&dl=0). Computer codes used in during the lecture can be found below.
